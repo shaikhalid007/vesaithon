@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <title>...</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans:100,300,400,500" rel="stylesheet">
+</head>
+
+<body>
+  <!-- welcome screen -->
+  <div class = "wcs">
+    <center>
+        <h1>Sign Language Video Calling</h1>
+        <div class = "intro">
+          <p>you better read the intro while </br>
+            we LOAD things</p>
+          <p>using this web app deaf-dumb people can video call</p>
+          <p>this is RESEARCH project in the field of video classification</p>
+          <p></p>
+          <p>choose your mode</p>
+        </div>
+        <input id="name" type="text" placeholder="enter your name">
+        <button id="dd-mode">Differently-Abled</button>
+        <button id="normal-mode">Temporaroly-Abled</button>
+    </center>
+  </div>
+
+  <!--training screen-->
+  <div class = "ts">
+      <div id="training-list">
+        <p id=howTo>add word to be used in video calling</br>
+          add conjunctions with your words</br>
+          example--> how is the weather</br>
+          word1->how is    word2->the weather</p>
+        <div id="example-list"></div>
+        <div id="add">
+          <form id="add-word" autocomplete="off">
+            <input type="text" id="new-word" placeholder="Add Training word">
+            <br/><br/>
+            <input type="submit" value="Add Word">
+          </form>
+        </div>
+        <p id="count">Training: 2 words</p>
+        <div id="action-btn"></div>
+      </div>
+  </div>
+
+  <!--canvas-->
+  <div class='canvas'>
+    <canvas id="canvas1" width="224" height="224"></canvas>
+    <canvas id="canvas2" width="224" height="224"></canvas>
+  </div>
+  
+
+
+  <!--video positioning-->
+  <div class="localStream">
+    <video></video>
+  </div>
+  
+  <div class='alphabetArea'>
+      <canvas id="canvas3" width="300" height="300"></canvas>
+  </div>
+
+  <!--div class="slidercontainer">
+    <div class="howTo">
+      <p>adjust the values to isolate yourself from the background</p>
+      <p>the Six sliders above are for hsv values</p>
+      <p>below the are rgb values</p>
+      <button id='nextbtn'></button>
+    </div>
+    <div class="lowerValues">
+      <input type="range" min="0" max="179" value="0" class="slider" id="lhRange">
+      <p>Value: <span id="lhValue"></span></p>
+      <input type="range" min="0" max="255" value="0" class="slider" id="lsRange">
+      <p>Value: <span id="lsValue"></span></p>
+      <input type="range" min="0" max="255" value="0" class="slider" id="lvRange">
+      <p>Value: <span id="lvValue"></span></p>
+    </div>
+
+    <div class="higherValues">
+      <input type="range" min="0" max="179" value="179" class="slider" id="hhRange">
+      <p>Value: <span id="hhValue"></span></p>
+      <input type="range" min="0" max="255" value="255" class="slider" id="hsRange">
+      <p>Value: <span id="hsValue"></span></p>
+      <input type="range" min="0" max="255" value="255" class="slider" id="hvRange">
+      <p>Value: <span id="hvValue"></span></p>
+    </div-->
+
+      <div class="rgbValues">
+          <input type="range" min="-50" max="50" value="0" class="slider" id="redRange">
+          <p>Value: <span id="redValue"></span></p>
+          <input type="range" min="-50" max="50" value="0" class="slider" id="blueRange">
+          <p>Value: <span id="blueValue"></span></p>
+          <input type="range" min="-50" max="50" value="0" class="slider" id="greenRange">
+          <p>Value: <span id="greenValue"></span></p>
+      </div>
+  </div>
+  
+  <div class="status">
+    <span id="status-text">NONE</span>
+  </div>
+
+  <div class="remoteStream">
+    <div id="peerDiv" class="embed-responsive embed-responsive-16by9">
+    </div>
+  </div>
+
+  <div id="pred-result" class="words" cols="50" rows="5" style="border:solid 1px orange;" contenteditable></div>
+
+
+
+
+  <!--message container-->
+  <div class="messageContainer">
+      <textarea name="messages" id="message-box" cols="30" rows="15"></textarea>
+  </div>
+
+
+  <!--multi purpose button-->
+  <div class="mpb">
+    <button id="mpb-button"></button>
+    <button id="toggle"></button>
+  </div>
+
+
+  <script src="opencv.js"></script>
+  <script src="https://unpkg.com/ml5@0.3.1/dist/ml5.min.js"></script>
+  <!--script src="https://unpkg.com/@tensorflow/tfjs"></script-->
+  <!-- Load MobileNet -->
+  <!--script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script-->
+  <!-- Load KNN Classifier -->
+  <!--script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script-->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="bundle.js"></script>
+</body>
+
+</html>

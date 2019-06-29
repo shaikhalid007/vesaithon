@@ -1,0 +1,48 @@
+{
+  "name": "asl-video-calling",
+  "version": "1.0.0",
+  "description": "Video Chat between 2 people using simple-peer",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "browserify ./public/main.js -o ./public/bundle.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ],
+          "plugins": [
+            "syntax-async-functions",
+            "transform-regenerator"
+          ]
+        }
+      ]
+    ]
+  },
+  "env": {
+    "es6": true
+  },
+  "author": "error(404)",
+  "dependencies": {
+    "browserify": "^16.2.3",
+    "browserify-fs": "^1.0.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "simple-peer": "^9.3.0",
+    "skintone": "^1.0.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.23.1"
+  }
+}
