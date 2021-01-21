@@ -34,7 +34,7 @@
     "fs": "0.0.1-security",
     "simple-peer": "^9.3.0",
     "skintone": "^1.0.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
